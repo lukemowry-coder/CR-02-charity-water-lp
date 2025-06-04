@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Clear Water</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="center-content" style="color: #8BD1CB; margin: 0; padding: 0;">
+    <!-- Added class "center-content" to body for centering all content -->
+    <!-- Set the font color to #8BD1CB for the whole page -->
+
+    <!-- Removed the background image at the top of the content -->
+
+    <!-- Center everything inside a container div using text-align: center -->
+    <div style="text-align: center;">
+        <!-- Add a simple border around all the wording and photo using a div -->
+        <div class="bordered-content" style="display: inline-block; border: 2px solid #FFC907; border-radius: 10px; padding: 10px; max-width: 98vw; margin: 10px auto; box-sizing: border-box; text-align: center;">
+            <!-- Header section with a title -->
+            <header>
+                <!-- Center the image above the title using its own div -->
+                <!-- Removed the image in the box above the title, but kept the background image in CSS -->
+                <h1 style="color: #FFC907; font-family: 'Proxima Nova', Arial, sans-serif;">Charity: Clean Water</h1> <!-- Title is yellow #FFC907 and uses Proxima Nova font -->
+                <!-- Center all wording under the title using a div and text-align -->
+                <div style="text-align: center;">
+                    <p style="font-family: 'Avenir', Arial, sans-serif; color: #8BD1CB;">
+                        Helping to provide clean water to those in need.
+                    </p>
+                </div>
+            </header>
+
+            <!-- Main content section -->
+            <main>
+                <div style="text-align: center;">
+                    <!-- Section for the mission statement -->
+                    <section style="margin: 10px 0;">
+                        <h2 style="color: #FFC907; font-family: 'Proxima Nova', Arial, sans-serif;">Our Mission</h2>
+                        <p style="font-family: 'Avenir', Arial, sans-serif; color: #8BD1CB;">
+                            We aim to provide access to clean and safe drinking water for communities around the world.
+                        </p>
+                    </section>
+
+                    <!-- Section for a call to action -->
+                    <section style="margin: 10px 0;">
+                        <h2 style="color: #FFC907; font-family: 'Proxima Nova', Arial, sans-serif;">
+                            Get Involved
+                        </h2>
+                        <p style="font-family: 'Avenir', Arial, sans-serif; color: #8BD1CB;">
+                            Join us in making a difference! 
+                            <a href="https://www.charitywater.org/" id="donate-link" class="donate-btn">Donate now</a> 
+                            to support our cause.
+                        </p>
+                    </section>
+                </div>
+            </main>
+
+            <!-- Footer section -->
+            <footer>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Add this script at the end of the body for confetti effect -->
+    <script>
+    // Simple confetti effect for beginners
+    // When the 'Donate now' link is clicked, show confetti
+    document.getElementById('donate-link').addEventListener('click', function(event) {
+        // Prevent going to the link immediately so students can see the effect
+        event.preventDefault();
+
+        // Add a transform effect to the button when clicked
+        this.classList.add('clicked');
+        setTimeout(() => {
+            this.classList.remove('clicked');
+        }, 400);
+
+        // Create confetti pieces
+        for (let i = 0; i < 40; i++) {
+            let confetti = document.createElement('div');
+            // Set random color and position
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-30px';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.background = 'hsl(' + Math.random()*360 + ', 80%, 60%)';
+            confetti.style.borderRadius = '2px';
+            confetti.style.zIndex = 9999;
+            confetti.style.opacity = 0.8;
+            confetti.style.pointerEvents = 'none';
+            confetti.style.transition = 'top 1.2s cubic-bezier(.22,1.61,.36,1), left 1.2s linear, opacity 1.2s linear, transform 1.2s';
+            confetti.style.transform = 'rotate(' + (Math.random()*360) + 'deg) scale(' + (0.8 + Math.random()*0.6) + ')';
+
+            document.body.appendChild(confetti);
+
+            // Animate confetti falling with a little rotation
+            setTimeout(() => {
+                confetti.style.top = (60 + Math.random()*30) + 'vh';
+                confetti.style.left = (parseFloat(confetti.style.left) + (Math.random()-0.5)*100) + 'vw';
+                confetti.style.opacity = 0;
+                confetti.style.transform = 'rotate(' + (Math.random()*720) + 'deg) scale(' + (0.8 + Math.random()*0.6) + ')';
+            }, 10);
+
+            // Remove confetti after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, 1300);
+        }
+
+        // After confetti, go to the link
+        setTimeout(() => {
+            window.location = this.href;
+        }, 1200);
+    });
+    </script>
+</body>
+</html>
