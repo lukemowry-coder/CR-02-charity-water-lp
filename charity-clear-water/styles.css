@@ -6,7 +6,7 @@ body {
     font-family: 'Comic Sans MS', Arial, sans-serif; /* Use a friendly font */
     margin: 0; /* Remove default margin */
     padding: 20px; /* Add some padding around the content */
-    background-image: url('img/picture.png'); /* Use picture.png from the img folder as background */
+    background-image: url('img/image4.jpg'); /* Changed background image to image4.jpg */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Make the image cover the whole page */
     background-position: center; /* Center the background image */
@@ -40,8 +40,10 @@ p {
 img {
     display: block; /* Make images block elements */
     margin: 0 auto; /* Center images */
-    max-width: 100%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 350px; /* Limit image width to 350px for better sharpness */
+    width: 100%;      /* Let images grow to fill their container up to 350px */
+    height: auto;     /* Maintain aspect ratio */
+    box-sizing: border-box; /* Include border and padding in width */
 }
 
 /* Style for links */
@@ -66,7 +68,7 @@ a:hover {
 
 /* Add a simple style for bordered content if not using .container */
 .bordered-content {
-    background-color: rgba(255,255,255,0.85); /* Light background for easier reading */
+    background-color: rgba(255,255,255,0.85); /* Add a white background with some transparency for readability */
     border-radius: 10px;
     padding: 10px;
 }
